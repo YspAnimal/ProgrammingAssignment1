@@ -1,29 +1,25 @@
 directory <- "specdata"
-id<- 151:152
+threshold <- 0.5
 
-pollutantmean <- function(directory, pollutant, id = 1:332) {
+corr <- function(directory, threshold = 0) {
   ## 'directory' is a character vector of length 1 indicating
   ## the location of the CSV files
   
-  ## 'pollutant' is a character vector of length 1 indicating
-  ## the name of the pollutant for which we will calculate the
-  ## mean; either "sulfate" or "nitrate".
+  ## 'threshold' is a numeric vector of length 1 indicating the
+  ## number of completely observed observations (on all
+  ## variables) required to compute the correlation between
+  ## nitrate and sulfate; the default is 0
   
-  ## 'id' is an integer vector indicating the monitor ID numbers
-  ## to be used
-  
-  ## Return the mean of the pollutant across all monitors list
-  ## in the 'id' vector (ignoring NA values)
+  ## Return a numeric vector of correlations
   ## NOTE: Do not round the result!
-  data <- data.frame()
-  files <- list.files(directory, full.names = T)
-  for (i in id) {
-    data <- rbind(data, read.csv(files[i]))
   
-  }
   
-  return(data)
-
+  
+  
+  
+  
 }
 
-datat <- pollutantmean(directory, 1, id)
+  
+tmp <- complete(directory, id)
+tmp
