@@ -1,6 +1,6 @@
-directory <- "specdata"
-id<- 151:182
-pollutant<-"sulfate"
+##directory <- "specdata"
+##id<- 151:182
+##pollutant<-"sulfate"
 
 pollutantmean <- function(directory, pollutant, id = 1:332) {
   ## 'directory' is a character vector of length 1 indicating
@@ -19,11 +19,13 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   data <- data.frame()
   files <- list.files(directory, full.names = T)
   for (i in id) {
+    
     data <- rbind(data, read.csv(files[i]))
+    
   }
   pollmean <- mean(data[, pollutant],na.rm=T)
 }
 
 ##meandata <- 
-pollutantmean(directory, pollutant, id)
+##pollutantmean(directory, pollutant, id)
 ##meandata
